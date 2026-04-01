@@ -10,6 +10,11 @@ venv/
 # FastF1 cache
 cache/
 
+# Data files (parquet + DuckDB)
+data/
+*.duckdb
+*.duckdb.wal
+
 # Python cache
 __pycache__/
 *.pyc

@@ -29,12 +29,14 @@ All data comes from the official F1 live timing API via Fast-F1. Data is stored 
 - `Time`, `AirTemp` (C), `TrackTemp` (C), `Humidity` (%), `Pressure` (mbar)
 - `Rainfall` (bool), `WindDirection` (degrees 0-359), `WindSpeed` (m/s)
 
-### Available But Not Yet Pulled
-
-**Telemetry** — ~240ms resolution per driver. The most granular data.
+**Telemetry** (`*_telemetry.parquet`) — ~240ms resolution, combined across all drivers per session.
 - Car data: `Speed` (km/h), `RPM`, `nGear`, `Throttle` (0-100%), `Brake` (bool), `DRS` (status code)
 - Position data: `X`, `Y`, `Z` (1/10 meter), `Status` (OnTrack/OffTrack)
+- Temporal: `Time`, `SessionTime`, `Date`, `Source`
+- Added by pipeline: `Driver` (3-letter abbreviation), `DriverNumber`
 - Enables: braking point comparisons, cornering speed analysis, track position visualization
+
+### Available But Not Yet Pulled
 
 **Race Control Messages** — Flags, penalties, DRS activations.
 - `Category` (Flag/Drs/CarEvent/Other), `Message`, `Flag`, `Scope`, `RacingNumber`, `Lap`
